@@ -1,0 +1,57 @@
+<div *ngIf="book" class="container">
+    <form (ngSubmit)="saveWeapon()" #weaponForm="ngForm">
+      <h1>Книга</h1>
+      <div class="form-group">
+        <label for="avatar">Фото</label>
+        <div class="alert-warning" *ngIf="max">Загруженное изображение превышает допустимый объем. Пожалуйста, выберите другое.</div>
+        <div class="img">
+          <img *ngIf="retrievedImage" [src]="retrievedImage" >
+        </div>
+        <input id="avatar" type="file" accept='image/*' (change)="onFileChanged($event)">
+      </div>
+      <div class="form-group">
+            <label for="name">Название</label><br>
+            <span name="name" *ngIf="book.name" (ngModel)="book.name.length">{{book.name.length}}/255</span>
+            <input type="text" class="form-control" id="name"
+                   required maxlength=255
+                   [(ngModel)]="book.name" name="name"
+                   #name="ngModel">
+            <div [hidden]="name.valid || name.pristine"
+                 class="alert alert-danger">
+              Это поле обязательно
+            </div>
+            <label for="year">Год издания</label><br>
+            <input type="number" class="form-control" id="year"
+                   required
+                   [(ngModel)]="book.year" name="year"
+                   #year="ngModel">
+            <div [hidden]="year.valid || year.pristine"
+                 class="alert alert-danger">
+              Это поле обязательно
+            </div>
+            <label for="izdat">Издательство</label><br>
+            <input type="text" class="form-control" id="izdat"
+                   required 
+                   [(ngModel)]="book.izdat" name="izdat"
+                   #izdat="ngModel">
+            <div [hidden]="izdat.valid || izdat.pristine"
+                 class="alert alert-danger">
+              Это поле обязательно
+            </div>
+      </div>
+         <div class="form-group">
+            <label for="description">Краткое содержание</label><br>
+            <span name="description" *ngIf="book.description"  (ngModel)="book.description.length">{{book.description.length}}/255</span>
+            <textarea style="resize: none;" type="text" class="form-control" id="description"
+                   required maxlength=255
+                   [(ngModel)]="book.description" name="description"
+                   #description="ngModel"></textarea>
+            <div [hidden]="description.valid || description.pristine"
+                 class="alert alert-danger">
+                 Это поле обязательно
+            </div>
+        </div>
+          <button type="submit" [disabled]="!weaponForm.form.valid" type="submit" class="btn btn-success">Сохранить
+            </button>
+    </form>
+</div>

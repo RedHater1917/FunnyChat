@@ -1,0 +1,28 @@
+<div *ngIf="loginForm" class="container">
+       <h1>Логин</h1>
+    <form (ngSubmit)="register()" #login="ngForm">
+      <div class="form-group">
+            <label for="email">Почта</label><br>
+            <input type="text" class="form-control" id="email"
+                   required 
+                   [(ngModel)]="loginForm.email" name="email"
+                   #email="ngModel">
+            <div [hidden]="!mailErr || (email.valid || email.pristine)"
+                 class="alert alert-danger">
+                 Введите почту
+            </div>
+            <label for="password">Пароль</label><br>
+            <input type="password" class="form-control" id="password"
+                   required 
+                   [(ngModel)]="loginForm.password" name="password"
+                   #password="ngModel">
+            <div [hidden]="password.valid || password.pristine"
+                 class="alert alert-danger">
+              Это поле обязательно
+            </div>
+      </div>
+        <a routerLink="/sign-up">Зарегистрироваться</a><br>
+        <button type="submit" [disabled]="!login.form.valid" type="submit" class="btn btn-success">Войти
+            </button>
+    </form>
+</div>

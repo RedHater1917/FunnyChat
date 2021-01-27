@@ -1,0 +1,12 @@
+<div class="container">
+    <div *ngIf="userService.currentUser">
+        <h1>Информация о пользователе</h1>
+        <div>Имя:{{userService.currentUser.firstName}}</div>
+        <div>Фамилия:{{userService.currentUser.lastName}}</div>
+        <div>Почта:{{userService.currentUser.email}}</div>
+    </div>
+    <a href="/admin">Админка</a><br>
+    <a href="/sign-up">Зарегистрироваться</a><br>
+    <a href="/login">Войти в акк</a>
+  
+</div>

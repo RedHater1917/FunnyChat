@@ -1,0 +1,44 @@
+div{
+    background-color: seashell;
+}
+.header{
+    width:100%;
+    border-bottom: 1px solid black;
+    position: relative;
+    float: left;
+    height: 15%;
+}
+.body{
+    width: 100%;
+    position: relative;
+    float: left;
+    height: 75%;
+}
+.sidenav{
+    border-right: 1px solid black;
+    padding: 2.5%;
+    width:20%;
+    float: left;
+    position: relative;
+    height: 100%;
+}
+.content{
+    width:80%;
+    padding: 2.5%;
+    float: left;
+    position: relative;
+    height: 100%;
+}
+.book{
+    height: 33%;
+    width: 33%;
+    float:left;
+}
+.footer{
+    border-top: 1px solid black;
+    width: 100%;
+    position: relative;
+    float: left;
+    height: 10%;
+    padding: 2.5%;
+}

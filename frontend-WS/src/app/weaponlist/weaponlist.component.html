@@ -1,0 +1,32 @@
+<div>
+    <div class="container">
+      <button routerLink="/bookentity/new">Новая книга</button>
+        <div class="table-responsive" id="entities" *ngIf="books?.length > 0">
+            <table class="table table-striped" aria-describedby="page-heading">
+                <thead>
+                    <tr>
+                        <th scope="col" ><span>Фото</span></th>
+                        <th scope="col" ><span>ID</span></th>
+                        <th scope="col" ><span>Название</span></th>
+                        <th scope="col" ><span>Издательство</span></th>
+                        <th scope="col" ><span>Год издания</span></th>
+                        <th scope="col" ><span>Краткое содержание</span></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let book of books">
+                        <td><img *ngIf="book.photo" [src]="book.photo" style="height: 64px;width: 64px;"></td>
+                        <td>{{book.id}}</td>
+                        <td>{{book.name}}</td>
+                        <td>{{book.izdat}}</td>
+                        <td>{{book.year}}</td>
+                        <td>{{book.description}}</td>
+                        <td><button routerLink="/weaponsentity/{{book.id}}">Редактировать</button>
+                        </td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+    </div>
+</div>

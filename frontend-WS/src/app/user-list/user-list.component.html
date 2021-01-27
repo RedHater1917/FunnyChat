@@ -1,0 +1,27 @@
+<div>
+    <div class="container">
+      <button routerLink="/sign-up">Зарегистрировать нового пользователя</button>
+      <button routerLink="/login">Залогиниться</button>
+        <div class="table-responsive" id="entities" *ngIf="users?.length > 0">
+            <table class="table table-striped" aria-describedby="page-heading">
+                <thead>
+                    <tr>
+                        <th scope="col" ><span>ID</span></th>
+                        <th scope="col" ><span>Имя</span></th>
+                        <th scope="col" ><span>Фамилия</span></th>
+                        <th scope="col" ><span>Роль</span></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users">
+                        <td>{{user.id}}</td>
+                        <td>{{user.firstName}}</td>
+                        <td>{{user.lastName}}</td>
+                        <td>{{user.role}}</td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row">
+        <div class="col" style="margin: 0;padding: 0;">
+            <div class="img">
+                <img *ngIf="image" [src]="image" >
+            </div>
+        </div>
+        <div class="col">
+                <span>Имя:{{book.name}}</span><br>
+                <span>Цена:Пока нет</span>
+                <hr>
+                <textarea style="resize: none;height: 50%;width: 100%;">{{book.description}}</textarea>
+        </div>
+    </div>
+</div>

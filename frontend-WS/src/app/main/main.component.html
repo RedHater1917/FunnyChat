@@ -1,0 +1,27 @@
+<div style="height: 100vh;">
+    <div class="header">
+       <input type="text" style="margin: 4.5%;margin-right:0;width: 80%;"  [(ngModel)]="srch"><button (click)="search()">Поиск</button>
+    </div>
+    <div class="body">
+        <div class="sidenav">
+            <div style="border: 0;">
+                <a routerLink="/main">На главную</a>
+            </div>
+            <div style="border: 0;">
+                <a routerLink="/lk">Личный кабинет</a>
+            </div>
+        </div>
+        <div class="content">
+            <div *ngFor="let book of books" class="book">
+                <img *ngIf="book.photo" [src]="book.photo" style="height: 64px;width: 64px;">
+                <div>
+                    <div>{{book.name}}</div>
+                    <div>{{book.description}}</div>
+                    <div><button routerLink="/buyBook/{{book.id}}">Купить</button></div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    <div class="footer"><p>Здесь должна быть какая-то инфа</p></div>
+</div>

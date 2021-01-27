@@ -1,0 +1,45 @@
+<div *ngIf="signUpForm" class="container">
+    <form (ngSubmit)="register()" #signUp="ngForm">
+      <h1>Регистрация</h1>
+      <div class="form-group">
+            <label for="firstName">Имя</label><br>
+            <input type="text" class="form-control" id="firstName"
+                   required 
+                   [(ngModel)]="signUpForm.firstName" name="firstName"
+                   #firstName="ngModel">
+            <div [hidden]="firstName.valid || firstName.pristine"
+                 class="alert alert-danger">
+              Это поле обязательно
+            </div>
+            <label for="year">Фамилия</label><br>
+            <input type="text" class="form-control" id="lastName"
+                   required
+                   [(ngModel)]="signUpForm.lastName" name="lastName"
+                   #lastName="ngModel">
+            <div [hidden]="lastName.valid || lastName.pristine"
+                 class="alert alert-danger">
+              Это поле обязательно
+            </div>
+            <label for="email">Почта</label><br>
+            <input type="text" class="form-control" id="email"
+                   required 
+                   [(ngModel)]="signUpForm.email" name="email"
+                   #email="ngModel">
+            <div [hidden]="!mailErr || (email.valid || email.pristine)"
+                 class="alert alert-danger">
+                 Введите почту
+            </div>
+            <label for="password">Пароль</label><br>
+            <input type="password" class="form-control" id="password"
+                   required 
+                   [(ngModel)]="signUpForm.password" name="password"
+                   #password="ngModel">
+            <div [hidden]="password.valid || password.pristine"
+                 class="alert alert-danger">
+              Это поле обязательно
+            </div>
+      </div>
+          <button type="submit" [disabled]="!signUp.form.valid" type="submit" class="btn btn-success">Сохранить
+            </button>
+    </form>
+</div>
